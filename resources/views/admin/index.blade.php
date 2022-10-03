@@ -4,7 +4,7 @@
 @section('content-title', 'index')
 @section('content')
 <div class="container">
-    <h1>test</h1>
+    <h1>test2</h1>
 
 </div>
 @endsection
