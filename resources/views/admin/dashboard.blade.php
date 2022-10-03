@@ -3,8 +3,14 @@
 @section('title', 'dashboard')
 @section('content')
 <div class="container">
-    <h3>Selamat datang,<br>Admin!</h3>
+    <h3>Selamat datang,<br>{{ Auth::user() -> username }}</h3>
  <br>
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            <strong>{{ $message }}</strong>
+        </div>
+        @endif
  <div class="row">
     <div class="col-lg-12">
         <div class="card shadow mb-4">

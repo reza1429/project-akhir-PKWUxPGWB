@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserAuth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,24 +14,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.index');
+Route::get('register', [UserAuth::class, 'register'])->name('register');
+Route::post('register', [UserAuth::class, 'register_action'])->name('register.action');
+Route::get('login', [UserAuth::class, 'login'])->name('login');
+Route::post('login', [UserAuth::class, 'login_action'])->name('login.action');
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('/', function () {
+        return view('admin.dashboard');
+    });
+    Route::get('/siswa', function () {
+        return view('admin.siswa');
+    });
+    Route::get('/obat', function () {
+        return view('admin.obat');
+    });
+    Route::get('/riwayat', function () {
+        return view('admin.riwayat');
+    });
+    Route::get('password', [UserAuth::class, 'password'])->name('password');
+    Route::post('password', [UserAuth::class, 'password_action'])->name('password.action');
+    Route::get('logout', [UserAuth::class, 'logout'])->name('logout');
 });
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
-Route::get('/siswa', function () {
-    return view('admin.siswa');
-});
-Route::get('/obat', function () {
-    return view('admin.obat');
-});
-Route::get('/riwayat', function () {
-    return view('admin.riwayat');
-});
-Route::get('/login', function () {
-    return view('login.login');
-});
-Route::get('/register', function () {
-    return view('login.register');
-});
+
+// Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

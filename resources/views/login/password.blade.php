@@ -17,7 +17,7 @@
                             <div class="col-lg-6 bg-gradient-success">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Reset Password</h1>
                                     </div>
                                     @if ($message = Session::get('success'))
                                     <div class="alert alert-success">
@@ -34,22 +34,27 @@
                                             </ul>
                                         </div>
                                     @endif
-                                    <form class="user" method="POST" action="{{ route('login.action') }}">
+                                    <form class="user" method="POST" action="{{ route('password.action') }}">
                                         @csrf
                                         <div class="form-group">
-                                                <input type="text" class="form-control form-control-user" id="username" name="username" value="{{ old('username') }}"
-                                                    placeholder="Username">
+                                            <input type="password" class="form-control form-control-user" name="old_password"
+                                                id="old_Password" placeholder="Old Password">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" name="password"
-                                                id="Password" placeholder="Password">
+                                            <input type="password" class="form-control form-control-user" name="new_password"
+                                                id="new_Password" placeholder="New Password">
                                         </div>
-                                        <input type="submit" class="btn btn-light btn-user btn-block" value="Login">
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user" name="confirm_new_password"
+                                                id="confirm_new_Password" placeholder="Confirm New Password">
+                                        </div>
+                                        <input type="submit" class="btn btn-light btn-user btn-block" value="Reset">
+                                        <a href="/" class="btn btn-light btn-user btn-block">Kembali</a>
                                     </form>
-                                    <hr>
-                                    <div class="text-center">
+                                    {{-- <hr> --}}
+                                    {{-- <div class="text-center">
                                         <a class="small text-white" href="/register">Create an Account!</a>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             <div class="col-lg-6 d-none d-lg-block text-center m-auto">

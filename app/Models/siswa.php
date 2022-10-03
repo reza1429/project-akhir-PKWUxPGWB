@@ -14,6 +14,7 @@ class siswa extends Model
         'kelas'
     ];
     protected $table = 'siswa';
+    protected $primaryKey = 'nisn';
 
     public function obat(){
         return $this->belongsToMany('App\Models\obat')->withPivot('keteragan');
