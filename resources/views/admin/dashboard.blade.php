@@ -11,7 +11,7 @@
             <strong>{{ $message }}</strong>
         </div>
         @endif
- <div class="row">
+<div class="row">
     <div class="col-lg-12">
         <div class="card shadow mb-4">
             {{-- <div class="card-header py-3">

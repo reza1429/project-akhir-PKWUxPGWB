@@ -20,6 +20,7 @@ return new class extends Migration
             $table->BigInteger('obat_id')->unsigned();
             $table->foreign('obat_id')->references('id')->on('obat')->onDelete('cascade')->onUpdate('cascade');
             $table->text('keterangan');
+            $table->text('penanggung_jawab');
             $table->timestamps();
         });
     }
