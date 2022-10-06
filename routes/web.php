@@ -24,13 +24,13 @@ Route::middleware(['auth'])->group(function(){
         return view('admin.dashboard');
     });
     Route::get('/siswa', function () {
-        return view('admin.siswa');
+        return view('pasien.siswa');
     });
     Route::get('/obat', function () {
-        return view('admin.obat');
+        return view('obat.obat');
     });
     Route::get('/riwayat', function () {
-        return view('admin.riwayat');
+        return view('history.riwayat');
     });
     Route::get('password', [UserAuth::class, 'password'])->name('password');
     Route::post('password', [UserAuth::class, 'password_action'])->name('password.action');
