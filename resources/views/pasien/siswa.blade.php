@@ -10,7 +10,7 @@
     
                 </div> --}}
                 <div class="card-body">
-                        <a href="{{ route('') }}" type="button" class="btn btn-success">Create</a><br>
+                        <a href="" type="button" class="btn btn-success">Create</a><br>
                         <table class="table">
                             <thead>
                                 <tr>
