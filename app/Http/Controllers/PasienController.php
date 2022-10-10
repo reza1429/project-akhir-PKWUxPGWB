@@ -14,7 +14,7 @@ class PasienController extends Controller
     public function index()
     {
         //
-        return view('siswa');
+        return view('pasien.siswa');
     }
 
     /**
