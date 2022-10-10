@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\UserAuth;
+use App\Http\Controllers\PasienController;
+use App\Http\Controllers\ObatController;
+use App\Http\Controllers\HistoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,9 +26,12 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/', function () {
         return view('admin.dashboard');
     });
-    Route::get('siswa', [PasienAuth::class]);
-    Route::get('obat', [ObatAuth::class]);
-    Route::get('riwayat', [RiwayatAuth::class]);
+    // Route::resource('siswa', [PasienAuth::class]);
+    // Route::resource('obat', [ObatAuth::class]);
+    // Route::resource('riwayat', [RiwayatAuth::class]);
+    Route::get('siswa', [PasienController::class]);
+    Route::get('obat', [ObatController::class]);
+    Route::get('riwayat', [HistoryController::class]);
 
     Route::get('password', [UserAuth::class, 'password'])->name('password');
     Route::post('password', [UserAuth::class, 'password_action'])->name('password.action');

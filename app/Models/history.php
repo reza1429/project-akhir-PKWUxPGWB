@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class kontak extends Model
+class history extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -18,7 +18,7 @@ class kontak extends Model
     public function siswa(){
         return $this->belongsTo('App\Models\siswa', 'id');
     }
-    public function kontak(){
+    public function obat(){
         return $this->belongsTo('App\Models\obat', 'obat_id');
     }
 }
