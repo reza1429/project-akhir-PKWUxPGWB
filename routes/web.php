@@ -23,12 +23,14 @@ Route::get('login', [UserAuth::class, 'login'])->name('login');
 Route::post('login', [UserAuth::class, 'login_action'])->name('login.action');
 
 Route::middleware(['auth'])->group(function(){
-    Route::get('/', function () {
-        return view('admin.dashboard');
-    });
+    // Route::get('/', function () {
+    //     return view('admin.dashboard');
+    // });
+    Route::resource('', [DashboardAuth::class]);
     // Route::resource('siswa', [PasienAuth::class]);
     // Route::resource('obat', [ObatAuth::class]);
     // Route::resource('riwayat', [RiwayatAuth::class]);
+    // Route::get('', [DashboardAuth::class]);
     Route::get('siswa', [PasienController::class]);
     Route::get('obat', [ObatController::class]);
     Route::get('riwayat', [HistoryController::class]);
