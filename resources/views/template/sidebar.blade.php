@@ -30,17 +30,29 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="/guru">
+            <i class="fas fa-fw fa-user o"></i>
+            <span>Guru</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/karyawan">
+            <i class="fas fa-fw fa-user o"></i>
+            <span>Karyawan</span>
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="/riwayat">
             <i class="fas fa-solid fa-pills"></i>
             <span>Riwayat</span>
         </a>
     </li>
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="/obat">
             <i class="fas fa-solid fa-pills"></i>
             <span>Obat</span>
         </a>
-    </li>
+    </li> --}}
 
     {{-- <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">

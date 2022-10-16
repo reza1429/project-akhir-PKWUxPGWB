@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('history', function (Blueprint $table) {
+        Schema::create('history_karyawan', function (Blueprint $table) {
             $table->id();
-            $table->BigInteger('siswa_id')->unsigned();
-            $table->foreign('siswa_id')->references('id')->on('siswa')->onDelete('cascade')->onUpdate('cascade');
+            $table->BigInteger('karyawan_id')->unsigned();
+            $table->foreign('karyawan_id')->references('id')->on('karyawan')->onDelete('cascade')->onUpdate('cascade');
             // $table->BigInteger('obat_id')->unsigned();
             // $table->foreign('obat_id')->references('id')->on('obat')->onDelete('cascade')->onUpdate('cascade');
             $table->text('keterangan');
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('history');
+        Schema::dropIfExists('history_karyawan');
     }
 };

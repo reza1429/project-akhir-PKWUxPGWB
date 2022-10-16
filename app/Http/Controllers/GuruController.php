@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
-class HistoryController extends Controller
+class GuruController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class HistoryController extends Controller
      */
     public function index()
     {
-        return view('history.riwayat');
+        return view('guru.guru');
         //
     }
 

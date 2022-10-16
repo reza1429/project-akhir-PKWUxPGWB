@@ -1,6 +1,6 @@
 @extends('template.admin')
  
-@section('title', 'siswa')
+@section('title', 'guru')
 @section('content')
 <div class="container">
     <div class="row">
@@ -14,9 +14,9 @@
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
-                                    <th scope="col">NISN</th>
+                                    <th scope="col">NIP</th>
                                     <th scope="col">Nama</th>
-                                    <th scope="col">Kelas</th>
+                                    <th scope="col">Jenis</th>
                                     <th scope="col">Jurusan</th>
                                 </tr>
                             </thead>
