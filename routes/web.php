@@ -31,7 +31,8 @@ Route::middleware(['auth'])->group(function(){
     // });
     // Route::resource('', [DashboardAuth::class]);
     // Route::resource('siswa', [PasienAuth::class]);
-    // Route::resource('obat', [ObatAuth::class]);
+    // Route::resource('guru', [GuruController::class, 'index']);
+    // Route::resource('karyawan', [KaryawanController::class, 'index']);
     // Route::resource('riwayat', [RiwayatAuth::class]);
     Route::get('', [DashboardController::class, 'index']);
     Route::get('siswa', [PasienController::class, 'index']);
