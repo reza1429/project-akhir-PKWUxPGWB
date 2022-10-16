@@ -29,11 +29,11 @@ Route::middleware(['auth'])->group(function(){
     // Route::get('/', function () {
     //     return view('admin.dashboard');
     // });
-    // Route::resource('', [DashboardAuth::class]);
-    // Route::resource('siswa', [PasienAuth::class]);
+    // Route::resource('', [DashboardController::class, 'index']);
+    // Route::resource('siswa', [PasienController::class, 'index']);
     // Route::resource('guru', [GuruController::class, 'index']);
     // Route::resource('karyawan', [KaryawanController::class, 'index']);
-    // Route::resource('riwayat', [RiwayatAuth::class]);
+    // Route::resource('riwayat', [HistoryController::class, 'index']);
     Route::get('', [DashboardController::class, 'index']);
     Route::get('siswa', [PasienController::class, 'index']);
     Route::get('guru', [GuruController::class, 'index']);
