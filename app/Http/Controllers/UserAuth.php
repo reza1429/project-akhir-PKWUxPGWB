@@ -42,14 +42,14 @@ class UserAuth extends Controller
     
     public function login_action(Request $request){
         $request->validate([
-            'username' => 'required',
+            'email' => 'required',
             'password' => 'required'
         ]);
-        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $request->session()->regenerate();
             return redirect()->intended('/');
         }
-        return back()->withErrors(['password' => 'username atau password salah!']);
+        return back()->withErrors(['password' => 'email atau password salah!']);
     }
 
     public function password(){
