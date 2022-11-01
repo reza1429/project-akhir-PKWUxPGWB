@@ -21,6 +21,7 @@ return new class extends Migration
             // $table->foreign('obat_id')->references('id')->on('obat')->onDelete('cascade')->onUpdate('cascade');
             $table->text('keterangan');
             $table->text('penanggung_jawab');
+            $table->text('status');
             $table->timestamps();
         });
     }
