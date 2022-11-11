@@ -21,8 +21,8 @@ class UserAuth extends Controller
 
     public function register_action(Request $request){
         $request->validate([
-            'username' => 'required|unique:tb_user',
-            'email' => 'required|email',
+            'username' => 'required',
+            'email' => 'required|email|unique:tb_user',
             'password' => 'required',
             'confirm_password' => 'required|same:password'
         ]);

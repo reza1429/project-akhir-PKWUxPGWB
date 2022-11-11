@@ -7,7 +7,8 @@
         <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h5>Siswa</h5>
+                    <h5>Siswa <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal-siswa">Tambah</button></h5>
+                    
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -115,6 +116,34 @@
                     </table>
                 </div>
 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-siswa">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Search Siswa</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body table-responsive">
+                <table class="table table-bordered table-stripped" id="table-siswa">
+                    <thead>
+                        <tr>
+                            <td>NISN</td>
+                            <td>Nama</td>
+                            <td>Kelas</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
