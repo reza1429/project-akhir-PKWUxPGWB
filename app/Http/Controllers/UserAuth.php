@@ -21,8 +21,8 @@ class UserAuth extends Controller
 
     public function register_action(Request $request){
         $request->validate([
-            'username' => 'required|unique:tb_user',
-            'email' => 'required|email',
+            'username' => 'required',
+            'email' => 'required|email|unique:tb_user',
             'password' => 'required',
             'confirm_password' => 'required|same:password'
         ]);
@@ -42,14 +42,14 @@ class UserAuth extends Controller
     
     public function login_action(Request $request){
         $request->validate([
-            'username' => 'required',
+            'email' => 'required',
             'password' => 'required'
         ]);
-        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $request->session()->regenerate();
             return redirect()->intended('/');
         }
-        return back()->withErrors(['password' => 'username atau password salah!']);
+        return back()->withErrors(['password' => 'email atau password salah!']);
     }
 
     public function password(){

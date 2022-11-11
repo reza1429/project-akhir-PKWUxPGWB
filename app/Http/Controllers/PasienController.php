@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use App\Models\siswa;
 
 class PasienController extends Controller
 {
@@ -14,7 +16,8 @@ class PasienController extends Controller
     public function index()
     {
         //
-        return view('pasien.siswa');
+        $data = siswa::paginate(10);
+        return view('pasien.siswa', compact('data'));
     }
 
     /**
