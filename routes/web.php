@@ -7,6 +7,8 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\PostController;
+use App\Http\Livewire\Counter;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,5 +48,9 @@ Route::middleware(['auth'])->group(function(){
 });
 
 // Auth::routes();
+
+// Route::get('s_siswa', 'PostController@search_siswa');
+Route::get('/s_siswa', [PostController::class, 'search_siswa']);
+// Route::get('siswa', Counter::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

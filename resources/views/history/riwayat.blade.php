@@ -121,6 +121,7 @@
     </div>
 </div>
 
+{{-- modal siswa --}}
 <div class="modal fade" id="modal-siswa">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -131,6 +132,7 @@
                 </button>
             </div>
             <div class="modal-body table-responsive">
+                <input type="search" name="search_siswa" id="search_siswa" placeholder="Masukkan NISN" class="form-control search_siswa"> 
                 <table class="table table-bordered table-stripped" id="table-siswa">
                     <thead>
                         <tr>
@@ -140,12 +142,58 @@
                             <td>Action</td>
                         </tr>
                     </thead>
-                    <tbody>
-                        
+                    <tbody id="siswa_list">
+                    {{-- @foreach ($siswa as $s) --}} 
+                            <tr >
+                            {{-- <td>{{ $s->nisn }}</td>
+                                <td>{{ $s->nama }}</td>
+                                <td>{{ $s->kelas }}</td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" href="#" role="button">Tambah History</a>
+                                    {{-- <a href="{{ route('master_s.show', $s->id)  }}" class="btn btn-sm btn-info btn-circle"><i class="fas fa-info"></i></a> --}}
+                                </td> --}}
+                            </tr>
+                            {{-- @endforeach --}} 
+                        </div>
                     </tbody>
                 </table>
+                <div class="card-footer pagination d-flex justify-content-end">
+                {{-- {{ $siswa->onEachSide(1)->links() }} --}}
+                </div>
             </div>
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+{{--  script siswa --}}
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#search_siswa').on('keyup',function(){
+        // var query_siswa=$(this).val();
+        var isi = $('#search_siswa').val()
+        // console.log(isi)
+        $.ajax({
+            url:"/s_siswa",
+            type:"GET",
+            data:{isi},
+            dataType:'json',
+            success: res => {
+                // console.log(res);
+                var _html='';
+                // $.each( res.data, function( key, value ) {
+                $.each( res.data, function( index, data ) {
+                    // $('#siswa_list').html(value.nama)
+                    _html+='<tr><td>'+data.nisn+'</td>';
+                    _html+='<td>'+data.nama+'</td>';
+                    _html+='<td>'+data.kelas+'</td>';
+                    _html+='<td><a class="btn btn-primary btn-sm" href="#" role="button">Tambah History</a></td></tr>';
+                    // console.log(value.nama)
+                });
+                $('#siswa_list').html(_html);
+            }
+        });
+    });
+});
+</script>
 @endsection
