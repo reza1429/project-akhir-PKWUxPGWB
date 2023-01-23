@@ -44,7 +44,7 @@
         <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h5>Guru</h5>
+                    <h5>Guru <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal-siswa">Tambah</button></h5>
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -87,7 +87,7 @@
         <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h5>Karyawan</h5>
+                    <h5>Karyawan <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal-siswa">Tambah</button></h5>
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -151,7 +151,7 @@
                                 <td>
                                     <a class="btn btn-primary btn-sm" href="#" role="button">Tambah History</a>
                                     {{-- <a href="{{ route('master_s.show', $s->id)  }}" class="btn btn-sm btn-info btn-circle"><i class="fas fa-info"></i></a> --}}
-                                </td> --}}
+                                </td>
                             </tr>
                             {{-- @endforeach --}} 
                         </div>
@@ -187,7 +187,7 @@ $(document).ready(function(){
                     _html+='<tr><td>'+data.nisn+'</td>';
                     _html+='<td>'+data.nama+'</td>';
                     _html+='<td>'+data.kelas+'</td>';
-                    _html+='<td><a class="btn btn-primary btn-sm" href="#" role="button">Tambah History</a></td></tr>';
+                    _html+='<td><a class="btn btn-primary btn-sm" location.href="{{ url('siswa.create'), '+data.id+'}}" role="button">Tambah History</a></td></tr>';
                     // console.log(value.nama)
                 });
                 $('#siswa_list').html(_html);

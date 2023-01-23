@@ -25,8 +25,10 @@ class PasienController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
+        $siswa = siswa::find($id);
+        return view('pasien.create', compact('siswa'));
         //
     }
 

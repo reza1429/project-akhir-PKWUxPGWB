@@ -38,6 +38,7 @@ Route::middleware(['auth'])->group(function(){
     // Route::resource('riwayat', [HistoryController::class, 'index']);
     Route::get('', [DashboardController::class, 'index']);
     Route::get('siswa', [PasienController::class, 'index']);
+    Route::get('siswa/create/{id_siswa}', [PasienController::class, 'create'])->name('siswa.create');
     Route::get('guru', [GuruController::class, 'index']);
     Route::get('karyawan', [KaryawanController::class, 'index']);
     Route::get('riwayat', [HistoryController::class, 'index']);
