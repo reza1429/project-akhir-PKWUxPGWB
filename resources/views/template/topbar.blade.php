@@ -1,5 +1,5 @@
 <!-- Topbar -->
-<nav class="navbar navbar-expand topbar mb-4 static-top shadow" style="background-color:#1AA222;">
+<nav class="navbar navbar-expand topbar mb-4 static-top shadow" style="background-color:white;">
 
     <!-- Sidebar Toggle (Topbar) -->
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -173,7 +173,7 @@
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user() -> username }}</span>
                 <img class="img-profile rounded-circle"
-                    src="assets/img/logo_uks.jpeg">
+                    src="assets/img/logo_uks.png">
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

@@ -3,7 +3,7 @@
 @section('title', 'dashboard')
 @section('content')
 <div class="container">
-    <h3>Selamat datang,<br>{{ Auth::user() -> username }}</h3>
+    <h3>Selamat Datang {{ Auth::user() -> username }}</h3>
  <br>
         @if ($message = Session::get('success'))
         <div class="alert alert-success">

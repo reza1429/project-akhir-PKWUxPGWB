@@ -4,7 +4,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center mt-5 mb-3" href="/">
         <div class="sidebar-brand-icon">
-            <img src="assets/img/logo_uks.jpeg" width="100"  class="rounded-circle">
+            <img src="assets/img/logo_uks.png" width="100"  class="rounded-circle">
             {{-- <i class="fas fa-laugh-wink"></i> --}}
         </div>
         {{-- <div class="sidebar-brand-text mx-3">UKS</div> --}}
