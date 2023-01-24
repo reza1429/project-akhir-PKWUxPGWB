@@ -7,13 +7,13 @@
         <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h5>Siswa <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal-siswa">Tambah</button></h5>
+                    <h5>Siswa <button style="background-color:#1AA222;" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-siswa">Tambah</button></h5>
                     
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table">   
                         <thead>
-                            <tr>
+                            <tr style="background-color:#1AA222; color:white;">
                                 <th scope="col">NO</th>
                                 <th scope="col">NISN</th>
                                 <th scope="col">NAMA</th>
@@ -49,7 +49,7 @@
                 <div class="card-body">
                     <table class="table">
                         <thead>
-                            <tr>
+                            <tr style="background-color:#1AA222; color:white;">
                                 {{-- <th scope="col">id</th>
                                 <th scope="col">NISN</th>
                                 <th scope="col">NAMA</th>
@@ -60,7 +60,7 @@
                                 <th scope="col">NAMA</th>
                                 <th scope="col">JENIS</th>
                                 <th scope="col">JURUSAN</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -92,7 +92,7 @@
                 <div class="card-body">
                     <table class="table">
                         <thead>
-                            <tr>
+                            <tr style="background-color:#1AA222; color:white;">
                                 <th scope="col">NO</th>
                                 <th scope="col">NISN</th>
                                 <th scope="col">NAMA</th>

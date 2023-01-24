@@ -21,7 +21,7 @@
                     <h5>Daftar Siswa Terbaru</h5>
                     <table class="table">
                         <thead>
-                            <tr>
+                            <tr style="background-color:#1AA222; color:white;">
                                 <th scope="col">No</th>
                                 <th scope="col">NISN</th>
                                 <th scope="col">Nama</th>

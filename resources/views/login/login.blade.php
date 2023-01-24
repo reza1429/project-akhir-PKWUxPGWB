@@ -14,7 +14,7 @@
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             
-                            <div class="col-lg-6 " style="background-color:#00BB0B;">
+                            <div class="col-lg-6 " style="background-color:#1AA222;">
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
