@@ -10,15 +10,19 @@ class history extends Model
     use HasFactory;
     protected $fillable = [
         'siswa_id',
-        'obat_id',
-        'keterangan'
+        'obat',
+        'keluhan',
+        'diagnosa',
+        'surat',
+        'penanggung_jawab',
+        'status'
     ];
     protected $table = 'history';
 
     public function siswa(){
         return $this->belongsTo('App\Models\siswa', 'id');
     }
-    public function obat(){
-        return $this->belongsTo('App\Models\obat', 'obat_id');
-    }
+    // public function obat(){
+    //     return $this->belongsTo('App\Models\obat', 'obat_id');
+    // }
 }

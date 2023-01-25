@@ -37,11 +37,12 @@ Route::middleware(['auth'])->group(function(){
     // Route::resource('karyawan', [KaryawanController::class, 'index']);
     // Route::resource('riwayat', [HistoryController::class, 'index']);
     Route::get('', [DashboardController::class, 'index']);
-    Route::get('siswa', [PasienController::class, 'index']);
-    Route::get('siswa/create/{id_siswa}', [PasienController::class, 'create'])->name('siswa.create');
-    Route::get('guru', [GuruController::class, 'index']);
-    Route::get('karyawan', [KaryawanController::class, 'index']);
-    Route::get('riwayat', [HistoryController::class, 'index']);
+    Route::resource('siswa', PasienController::class);
+    Route::get('siswa/create/{id_siswa}', [PasienController::class, 'create']);
+    Route::get('siswa/{id_siswa}/hapus', [PasienController::class, 'hapus'])->name('siswa.hapus');
+    Route::resource('guru', GuruController::class);
+    Route::resource('karyawan', KaryawanController::class);
+    Route::resource('riwayat', HistoryController::class);
 
     Route::get('password', [UserAuth::class, 'password'])->name('password');
     Route::post('password', [UserAuth::class, 'password_action'])->name('password.action');
