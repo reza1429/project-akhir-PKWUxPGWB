@@ -3,7 +3,7 @@
 @section('title', 'dashboard')
 @section('content')
 <div class="container">
-    <h3>Selamat datang,<br>{{ Auth::user() -> username }}</h3>
+    <h3>Selamat Datang {{ Auth::user() -> username }}</h3>
  <br>
         @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -21,7 +21,7 @@
                     <h5>Daftar Siswa Terbaru</h5>
                     <table class="table">
                         <thead>
-                            <tr>
+                            <tr style="background-color:#1AA222; color:white;">
                                 <th scope="col">No</th>
                                 <th scope="col">NISN</th>
                                 <th scope="col">Nama</th>
