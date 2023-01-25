@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Pagination\CursorPaginator;
+use App\Models\siswa;
+use App\Models\history;
+use DB;
 
 
 class HistoryController extends Controller
@@ -14,10 +18,17 @@ class HistoryController extends Controller
      */
     public function index()
     {
-        return view('history.riwayat');
+        $hSiswa = DB::table('history')
+        ->join('siswa', 'history.siswa_id', '=', 'siswa.id_siswa')
+        ->paginate(5);
+        // return $hSiswa;
+        // $hSiswa = $dataSiswa->toQuery()->cursorPaginate(5);
+        // $hSiswa = history::all();
+        // $hSiswa = siswa::where('id', $id)->history()->get();
+        return view('history.riwayat', compact('hSiswa'));
         //
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +38,7 @@ class HistoryController extends Controller
     {
         //
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -38,7 +49,7 @@ class HistoryController extends Controller
     {
         //
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -47,6 +58,9 @@ class HistoryController extends Controller
      */
     public function show($id)
     {
+        // $hSiswa = history::all();
+        $hSiswa = siswa::where('id', $id)->history()->get();
+        return view('history.riwayat', compact('hSiswa'));
         //
     }
 
