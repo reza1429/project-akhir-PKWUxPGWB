@@ -12,7 +12,7 @@
                 <div class="card-body">
                         <table class="table">
                             <thead>
-                                <tr>
+                                <tr style="background-color:#1AA222; color:white;">
                                     <th scope="col">No</th>
                                     <th scope="col">NIP</th>
                                     <th scope="col">Nama</th>

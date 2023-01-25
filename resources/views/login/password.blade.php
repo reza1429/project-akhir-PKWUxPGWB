@@ -4,7 +4,7 @@
 @section('content-auth')
     <div class="container">
 
-        <!-- Outer Row -->
+        <!-- Outer Row -->  
         <div class="row justify-content-center">
 
             <div class="col-xl-10 col-lg-12 col-md-9">
