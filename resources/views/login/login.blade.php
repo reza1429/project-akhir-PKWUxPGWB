@@ -14,10 +14,11 @@
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             
-                            <div class="col-lg-6 bg-gradient-success">
+                            <div class="col-lg-6 " style="background-color:#1AA222;">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                   
+                                    <h1 class="h4 text-white mb-4">Welcome Back!</h1>
                                     </div>
                                     @if ($message = Session::get('success'))
                                     <div class="alert alert-success">
@@ -52,8 +53,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 d-none d-lg-block text-center m-auto">
-                                <img src="assets/img/logo_uks.jpeg">
+                            <div class="col-lg-6 d-none d-lg-block text-center m-auto">                                
+                                <img src="assets/img/logo_uks.png" class="rounded mx-auto d-block"  width="350" alt="...">   
                             </div>
                         </div>
                     </div>

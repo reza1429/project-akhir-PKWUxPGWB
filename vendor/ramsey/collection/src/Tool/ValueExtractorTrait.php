@@ -14,7 +14,8 @@ declare(strict_types=1);
 
 namespace Ramsey\Collection\Tool;
 
-use Ramsey\Collection\Exception\ValueExtractionException;
+use Ramsey\Collection\Exception\InvalidPropertyOrMethod;
+use Ramsey\Collection\Exception\UnsupportedOperationException;
 
 use function get_class;
 use function is_object;
@@ -28,29 +29,48 @@ use function sprintf;
 trait ValueExtractorTrait
 {
     /**
-     * Extracts the value of the given property or method from the object.
+     * Extracts the value of the given property, method, or array key from the
+     * element.
      *
-     * @param mixed $object The object to extract the value from.
-     * @param string $propertyOrMethod The property or method for which the
+     * If `$propertyOrMethod` is `null`, we return the element as-is.
+     *
+     * @param mixed $element The element to extract the value from.
+     * @param string | null $propertyOrMethod The property or method for which the
      *     value should be extracted.
      *
-     * @return mixed the value extracted from the specified property or method.
+     * @return mixed the value extracted from the specified property, method,
+     *     or array key, or the element itself.
      *
-     * @throws ValueExtractionException if the method or property is not defined.
+     * @throws InvalidPropertyOrMethod
+     * @throws UnsupportedOperationException
      */
     // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
     protected function extractValue($object, string $propertyOrMethod)
     {
-        if (!is_object($object)) {
-            throw new ValueExtractionException('Unable to extract a value from a non-object');
+        if ($propertyOrMethod === null) {
+            return $element;
         }
 
-        if (property_exists($object, $propertyOrMethod)) {
-            return $object->$propertyOrMethod;
+        if (!is_object($element) && !is_array($element)) {
+            throw new UnsupportedOperationException(sprintf(
+                'The collection type "%s" does not support the $propertyOrMethod parameter',
+                $this->getType(),
+            ));
         }
 
-        if (method_exists($object, $propertyOrMethod)) {
-            return $object->{$propertyOrMethod}();
+        if (is_array($element)) {
+            return $element[$propertyOrMethod] ?? throw new InvalidPropertyOrMethod(sprintf(
+                'Key or index "%s" not found in collection elements',
+                $propertyOrMethod,
+            ));
+        }
+
+        if (property_exists($element, $propertyOrMethod)) {
+            return $element->$propertyOrMethod;
+        }
+
+        if (method_exists($element, $propertyOrMethod)) {
+            return $element->{$propertyOrMethod}();
         }
 
         throw new ValueExtractionException(

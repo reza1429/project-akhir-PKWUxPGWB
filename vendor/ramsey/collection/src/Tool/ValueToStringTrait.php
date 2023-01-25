@@ -16,7 +16,7 @@ namespace Ramsey\Collection\Tool;
 
 use DateTimeInterface;
 
-use function get_class;
+use function assert;
 use function get_resource_type;
 use function is_array;
 use function is_bool;
@@ -74,12 +74,8 @@ trait ValueToStringTrait
             return '(' . get_resource_type($value) . ' resource #' . (int) $value . ')';
         }
 
-        // If we don't know what it is, use var_export().
-        if (!is_object($value)) {
-            return '(' . var_export($value, true) . ')';
-        }
-
         // From here, $value should be an object.
+        assert(is_object($value));
 
         // __toString() is implemented
         if (is_callable([$value, '__toString'])) {
