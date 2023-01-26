@@ -41,7 +41,11 @@ Route::middleware(['auth'])->group(function(){
     Route::get('siswa/create/{id_siswa}', [PasienController::class, 'create']);
     Route::get('siswa/{id_siswa}/hapus', [PasienController::class, 'hapus'])->name('siswa.hapus');
     Route::resource('guru', GuruController::class);
+    Route::get('guru/create/{id_guru}', [GuruController::class, 'create']);
+    Route::get('guru/{id_guru}/hapus', [GuruController::class, 'hapus'])->name('guru.hapus');
     Route::resource('karyawan', KaryawanController::class);
+    Route::get('karyawan/create/{id_karyawan}', [KaryawanController::class, 'create']);
+    Route::get('karyawan/{id_karyawan}/hapus', [KaryawanController::class, 'hapus'])->name('karyawan.hapus');
     Route::resource('riwayat', HistoryController::class);
 
     Route::get('password', [UserAuth::class, 'password'])->name('password');
@@ -53,6 +57,8 @@ Route::middleware(['auth'])->group(function(){
 
 // Route::get('s_siswa', 'PostController@search_siswa');
 Route::get('/s_siswa', [PostController::class, 'search_siswa']);
+Route::get('/s_guru', [PostController::class, 'search_guru']);
+Route::get('/s_karyawan', [PostController::class, 'search_karyawan']);
 // Route::get('siswa', Counter::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

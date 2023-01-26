@@ -4,7 +4,7 @@ use function PHPUnit\Framework\returnValue;
 ?>
 @extends('template.admin')
  
-@section('title', 'History siswa')
+@section('title', 'History Siswa')
 @section('content')
 <h1>Halaman Edit History Siswa</h1>
 <div class="container">

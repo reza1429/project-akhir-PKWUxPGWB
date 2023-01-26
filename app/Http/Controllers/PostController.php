@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\siswa;
+use App\Models\guru;
+use App\Models\karyawan;
 use Illuminate\Http\Request;
 use Psy\Readline\Hoa\Console;
 use Symfony\Component\Console\Output\Output;
@@ -57,6 +59,24 @@ class PostController extends Controller
     //         }
     //         return $output;
     //     }
+    }
+    public function search_guru(){
+        if (request()->has('isi_guru')) {
+            $guru=request()->guru;
+            $result=guru::where('nip', 'Like', '%'.request()->isi_guru.'%')->get();
+            return response()->json(['data_guru'=>$result]);
+        } else {
+            return view('history.riwayat');
+        }
+    }
+    public function search_karyawan(){
+        if (request()->has('isi_karyawan')) {
+            $karyawan=request()->karyawan;
+            $result=karyawan::where('nip', 'Like', '%'.request()->isi_karyawan.'%')->get();
+            return response()->json(['data_karyawan'=>$result]);
+        } else {
+            return view('history.riwayat');
+        }
     }
     //
 }

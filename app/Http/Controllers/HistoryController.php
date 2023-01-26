@@ -21,11 +21,17 @@ class HistoryController extends Controller
         $hSiswa = DB::table('history')
         ->join('siswa', 'history.siswa_id', '=', 'siswa.id_siswa')
         ->paginate(5);
+        $hGuru = DB::table('history_guru')
+        ->join('guru', 'history_guru.guru_id', '=', 'guru.id_guru')
+        ->paginate(5);
+        $hKaryawan = DB::table('history_karyawan')
+        ->join('karyawan', 'history_karyawan.karyawan_id', '=', 'karyawan.id_karyawan')
+        ->paginate(5);
         // return $hSiswa;
         // $hSiswa = $dataSiswa->toQuery()->cursorPaginate(5);
         // $hSiswa = history::all();
         // $hSiswa = siswa::where('id', $id)->history()->get();
-        return view('history.riwayat', compact('hSiswa'));
+        return view('history.riwayat', compact('hSiswa', 'hGuru', 'hKaryawan'));
         //
     }
     

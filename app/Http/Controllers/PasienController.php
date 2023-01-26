@@ -142,7 +142,7 @@ class PasienController extends Controller
 
         $siswa->save();
         Session::flash('success', "data berhasil diupdate!!");
-        return redirect('master_s');
+        return redirect('riwayat');
         //
     }
 
