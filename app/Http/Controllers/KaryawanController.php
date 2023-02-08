@@ -19,7 +19,7 @@ class KaryawanController extends Controller
     public function index()
     {
         $data = karyawan::paginate(10);
-        return view('pasien.siswa', compact('data'));
+        return view('karyawan.karyawan', compact('data'));
         //
     }
 
@@ -88,6 +88,15 @@ class KaryawanController extends Controller
      */
     public function show($id)
     {
+        $hKaryawan = history_karyawan::where('id', $id)->first();
+        $karyawan = DB::table('karyawan')
+        ->join('history_karyawan', 'karyawan.id_karyawan', '=', 'history_karyawan.karyawan_id')->where('id', $id)
+        ->join('tb_user', 'history_karyawan.penanggung_jawab', '=', 'tb_user.user_id')->where('id', $id)
+        ->get();
+        // $project = karyawan::find($id)->project()->get();
+        // return($kontak);
+        return view('karyawan.show', compact('karyawan', 'hKaryawan'));
+        //
         //
     }
 

@@ -88,6 +88,14 @@ class PasienController extends Controller
      */
     public function show($id)
     {
+        $hSiswa = history::where('id', $id)->first();
+        $siswa = DB::table('siswa')
+        ->join('history', 'siswa.id_siswa', '=', 'history.siswa_id')->where('id', $id)
+        ->join('tb_user', 'history.penanggung_jawab', '=', 'tb_user.user_id')->where('id', $id)
+        ->get();
+        // $project = siswa::find($id)->project()->get();
+        // return($kontak);
+        return view('pasien.show', compact('siswa', 'hSiswa'));
         //
     }
 

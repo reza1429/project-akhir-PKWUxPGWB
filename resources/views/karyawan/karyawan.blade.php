@@ -14,20 +14,20 @@
                             <thead>
                                 <tr style="background-color:#1AA222; color:white;">
                                     <th scope="col">No</th>
-                                    <th scope="col">NISN</th>
+                                    <th scope="col">NIP</th>
                                     <th scope="col">Nama</th>
                                     <th scope="col">Bagian</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                        </td>
+                            @foreach ($data as $i => $d)
+                                <tr>
+                                    <td>{{ $data->firstItem() + $i }}</td>
+                                        <td>{{ $d->nip }}</td>
+                                        <td>{{ $d->nama }}</td>
+                                        <td>{{ $d->bagian }}</td>
                                     </tr>
+                            @endforeach
                             </tbody>
                         </table>
                 </div>

@@ -19,7 +19,7 @@ class GuruController extends Controller
     public function index()
     {
         $data = guru::paginate(10);
-        return view('pasien.siswa', compact('data'));
+        return view('guru.guru', compact('data'));
         //
     }
 
@@ -88,6 +88,15 @@ class GuruController extends Controller
      */
     public function show($id)
     {
+        $hGuru = history_guru::where('id', $id)->first();
+        $guru = DB::table('guru')
+        ->join('history_guru', 'guru.id_guru', '=', 'history_guru.guru_id')->where('id', $id)
+        ->join('tb_user', 'history_guru.penanggung_jawab', '=', 'tb_user.user_id')->where('id', $id)
+        ->get();
+        // $project = guru::find($id)->project()->get();
+        // return($kontak);
+        return view('guru.show', compact('guru', 'hGuru'));
+        //
         //
     }
 
