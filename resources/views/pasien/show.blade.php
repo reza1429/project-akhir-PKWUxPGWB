@@ -27,8 +27,8 @@
                                 <tr>
                                     <td>Kelas Siswa : {{ $siswa->kelas }}</td>
                                     <?php
-                                    $tmasuk=$siswa->created_at;
-                                    $tmasukf=date('l, j F Y H:i', strtotime($tmasuk));
+                                    $tmasuk=strtotime($siswa->created_at);
+                                    $tmasukf=date('l, j F Y H:i', $tmasuk);
                                     ?>
                                     <td>Tanggal Masuk : <?=$tmasukf?></td>
                                 </tr>

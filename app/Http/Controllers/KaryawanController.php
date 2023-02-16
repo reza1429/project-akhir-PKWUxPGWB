@@ -143,7 +143,7 @@ class KaryawanController extends Controller
             'diagnosa' => 'required'
         ], $masage);
 
-        $karyawan = history_karyawan::where('id', $id)->get();
+        $karyawan = history_karyawan::where('id', $id)->first();
         $karyawan->keluhan = $request->keluhan;
         $karyawan->obat = $request->obat;
         $karyawan->diagnosa = $request->diagnosa;

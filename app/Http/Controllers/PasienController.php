@@ -142,7 +142,7 @@ class PasienController extends Controller
             'diagnosa' => 'required'
         ], $masage);
 
-        $siswa = history::where('id', $id)->get();
+        $siswa = history::where('id', $id)->first();
         $siswa->keluhan = $request->keluhan;
         $siswa->obat = $request->obat;
         $siswa->diagnosa = $request->diagnosa;
