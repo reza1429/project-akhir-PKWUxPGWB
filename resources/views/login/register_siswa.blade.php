@@ -1,6 +1,6 @@
 @extends('login.template')
  
-@section('title', 'index')
+@section('title', 'login')
 @section('content-auth')
     <div class="container">
 
@@ -23,11 +23,11 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form class="user" method="POST" autocomplete="off" autofill="off" action="{{ route('register.action') }}">
+                            <form class="user" method="POST" autocomplete="off" autofill="off" action="{{ route('register_siswa.action') }}">
                                 @csrf
                                 <div class="form-group row">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="username" name="username" autocomplete="off" value="{{ old('username') }}"
+                                        <input type="text" class="form-control form-control-user" id="username" name="username" value="{{ old('username') }}"
                                             placeholder="Username">
                                     </div>
                                 </div>
@@ -39,29 +39,23 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user" id="email" name="email" value="{{ old('password') }}"
-                                    placeholder="Email Address">
+                                        placeholder="Email Address">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" autocomplete="off" class="form-control form-control-user" name="password"
+                                        <input type="password" class="form-control form-control-user" name="password"
                                             id="password" placeholder="Password">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user" name="confirm_password"
-                                        id="confrim_password" placeholder="Repeat Password">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-12 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="kode_aktivasi" name="kode_aktivasi" value="{{ old('kode_aktivasi') }}"
-                                            placeholder="Kode Aktivasi">
+                                            id="confrim_password" placeholder="Repeat Password">
                                     </div>
                                 </div>
                                 <input type="submit" class="btn btn-light btn-user btn-block" value="Register Account">
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small text-white" href="/login">Already have an account? Login!</a>
+                                <a class="small text-white" href="/login_lainnya">Already have an account? Login!</a>
                             </div>
                         </div>
                     </div>

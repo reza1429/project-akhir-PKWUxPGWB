@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\siswa;
 use App\Models\history;
+use Carbon\Carbon;
 use DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -72,7 +74,8 @@ class PasienController extends Controller
             'diagnosa' => $request->diagnosa,
             'surat' => "menyusul",
             'penanggung_jawab' => Auth::id(),
-            'status' => $request->status
+            'status' => $request->status,
+            'created_at' => Carbon::now()->translatedFormat('Y-m-d H:i:s')
         ]);
 
         Session::flash('success', "project berhasil ditambahkan!!");
@@ -93,6 +96,14 @@ class PasienController extends Controller
         ->join('history', 'siswa.id_siswa', '=', 'history.siswa_id')->where('id', $id)
         ->join('tb_user', 'history.penanggung_jawab', '=', 'tb_user.user_id')->where('id', $id)
         ->get();
+
+        // $hSiswa = DB::table('siswa')
+        // ->join('history', function (JoinClause $join) {
+        //     $id_siswa = siswa::all()->where('nisn', Auth::user() -> no_induk)->first();
+        //     $join->on('history.siswa_id', '=', 'siswa.id_siswa')
+        //     ->where('history.siswa_id', '=', $id_siswa->id_siswa);
+        // })->get();
+        // dd($hSiswa);
         // $project = siswa::find($id)->project()->get();
         // return($kontak);
         return view('pasien.show', compact('siswa', 'hSiswa'));

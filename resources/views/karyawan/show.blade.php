@@ -22,7 +22,19 @@
                                 </tr>
                                 <tr>
                                     <td>Nama Karyawan : {{ $karyawan->nama }}</td>
-                                    <td>Status karyawan : {{ $karyawan->status }}</td>
+                                    <?php 
+                                    $asli = $karyawan->status;
+                                    if ($asli == 'rawat') {
+                                        $status = 'Sedang dirawat';
+                                    } elseif ($asli == 'kembali'){
+                                        $status = 'Kembali ke kelas';
+                                    } elseif ($asli == 'pulang'){
+                                        $status = 'telah dipulangkan';
+                                    } elseif ($asli == 'rujuk'){
+                                        $status = 'Telah dirujuk';
+                                    }
+                                    ?>
+                                    <td>Status Karyawan : <?= $status ?></td>
                                 </tr>
                                 <tr>
                                     <td>Bagian Karyawan : {{ $karyawan->bagian }}</td>
@@ -30,7 +42,8 @@
                                     $tmasuk=$karyawan->created_at;
                                     $tmasukf=date('l, j F Y H:i', strtotime($tmasuk));
                                     ?>
-                                    <td>Tanggal Masuk : <?=$tmasukf?></td>
+                                    <td>Tanggal Masuk : <?=$hKaryawan->created_at?></td>
+                                    <!-- <td>Tanggal Masuk : {{ \Carbon\Carbon::parse($karyawan->created_at)->translatedFormat('l, j F Y H:i') }}</td> -->
                                 </tr>
                                 <!-- <tr> -->
                                     <!-- <td>Status Karyawan : {{ $karyawan->status }}</td> -->

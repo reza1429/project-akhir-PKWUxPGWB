@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\guru;
@@ -72,7 +73,8 @@ class GuruController extends Controller
             'diagnosa' => $request->diagnosa,
             'surat' => "menyusul",
             'penanggung_jawab' => Auth::id(),
-            'status' => $request->status
+            'status' => $request->status,
+            'created_at' => Carbon::now()->translatedFormat('Y-m-d H:i:s')
         ]);
 
         Session::flash('success', "project berhasil ditambahkan!!");

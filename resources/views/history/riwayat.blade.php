@@ -125,13 +125,14 @@
 <!-- data_siswa -->
 {{-- modal siswa --}}
 <div class="modal fade" id="modal-siswa">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Search Siswa</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+                <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
             </div>
             <div class="modal-body table-responsive">
                 <input type="search" name="search_siswa" id="search_siswa" placeholder="Masukkan NISN" class="form-control search_siswa"> 
@@ -203,7 +204,7 @@ $(document).ready(function(){
 <!-- data_guru -->
 {{-- modal guru --}}
 <div class="modal fade" id="modal-guru">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Search guru</h4>
@@ -281,7 +282,7 @@ $(document).ready(function(){
 <!-- data_karyawan -->
 {{-- modal karyawan --}}
 <div class="modal fade" id="modal-karyawan">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Search karyawan</h4>

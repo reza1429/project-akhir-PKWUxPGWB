@@ -22,15 +22,29 @@
                                 </tr>
                                 <tr>
                                     <td>Nama Siswa : {{ $siswa->nama }}</td>
-                                    <td>Status Siswa : {{ $siswa->status }}</td>
+                                    <?php 
+                                    $asli = $siswa->status;
+                                    if ($asli == 'rawat') {
+                                        $status = 'Sedang dirawat';
+                                    } elseif ($asli == 'kembali'){
+                                        $status = 'Kembali ke kelas';
+                                    } elseif ($asli == 'pulang'){
+                                        $status = 'telah dipulangkan';
+                                    } elseif ($asli == 'rujuk'){
+                                        $status = 'Telah dirujuk';
+                                    }
+                                    ?>
+                                    <td>Status Siswa : <?= $status ?></td>
                                 </tr>
                                 <tr>
                                     <td>Kelas Siswa : {{ $siswa->kelas }}</td>
                                     <?php
                                     $tmasuk=strtotime($siswa->created_at);
                                     $tmasukf=date('l, j F Y H:i', $tmasuk);
+                                    $tanggal = $hSiswa->created_at;
+                                    
                                     ?>
-                                    <td>Tanggal Masuk : <?=$tmasukf?></td>
+                                    <td>Tanggal Masuk : <?=$hSiswa->created_at?></td>
                                 </tr>
                                 <tr>
                                     <td>Jurusan Siswa : {{ $siswa->jurusan }}</td>

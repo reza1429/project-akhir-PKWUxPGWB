@@ -22,7 +22,19 @@
                                 </tr>
                                 <tr>
                                     <td>Nama Guru : {{ $guru->nama }}</td>
-                                    <td>Status Guru : {{ $guru->status }}</td>
+                                    <?php 
+                                    $asli = $guru->status;
+                                    if ($asli == 'rawat') {
+                                        $status = 'Sedang dirawat';
+                                    } elseif ($asli == 'kembali'){
+                                        $status = 'Kembali ke kelas';
+                                    } elseif ($asli == 'pulang'){
+                                        $status = 'telah dipulangkan';
+                                    } elseif ($asli == 'rujuk'){
+                                        $status = 'Telah dirujuk';
+                                    }
+                                    ?>
+                                    <td>Status Guru : <?= $status ?></td>
                                 </tr>
                                 <tr>
                                     <td>Jenis Guru : {{ $guru->jenis }}</td>
@@ -30,7 +42,7 @@
                                     $tmasuk=$guru->created_at;
                                     $tmasukf=date('l, j F Y H:i', strtotime($tmasuk));
                                     ?>
-                                    <td>Tanggal Masuk : <?=$tmasukf?></td>
+                                    <td>Tanggal Masuk : <?=$hGuru->created_at?></td>
                                 </tr>
                                 <tr>
                                     <td>Matpel Guru : {{ $guru->matpel }}</td>

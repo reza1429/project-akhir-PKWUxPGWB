@@ -1,7 +1,7 @@
-@extends('login.template')
+@extends('user.template')
  
 @section('title-auth', 'index')
-@section('content-auth')
+@section('content-user')
     <div class="container">
 
         <!-- Outer Row -->  
@@ -49,7 +49,15 @@
                                                 id="confirm_new_Password" placeholder="Confirm New Password">
                                         </div>
                                         <input type="submit" class="btn btn-light btn-user btn-block" value="Reset">
-                                        <a href="/" class="btn btn-light btn-user btn-block">Kembali</a>
+                                        @if( auth()->user()->role == 0)
+                                        <a href="/dashboard" class="btn btn-light btn-user btn-block">Kembali</a>
+                                        @elseif (auth()->user()->role == 1)
+                                        <a href="/home_siswa" class="btn btn-light btn-user btn-block">Kembali</a>
+                                        @elseif (auth()->user()->role == 2)
+                                        <a href="/home_guru" class="btn btn-light btn-user btn-block">Kembali</a>
+                                        @elseif (auth()->user()->role == 3)
+                                        <a href="/home_karyawan" class="btn btn-light btn-user btn-block">Kembali</a>
+                                        @endif
                                     </form>
                                     {{-- <hr> --}}
                                     {{-- <div class="text-center">

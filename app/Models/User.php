@@ -12,5 +12,5 @@ class User extends Authenticatable
     protected $table = 'tb_user';
     protected $primaryKey = 'user_id';
 
-    protected $fillable = ['username', 'email', 'password', 'role'];
+    protected $fillable = ['username', 'no_induk', 'email', 'password', 'role'];
 }

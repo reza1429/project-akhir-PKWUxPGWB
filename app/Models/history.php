@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+// use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class history extends Model
 {
@@ -15,7 +17,8 @@ class history extends Model
         'diagnosa',
         'surat',
         'penanggung_jawab',
-        'status'
+        'status',
+        'created_at'
     ];
     protected $table = 'history';
 
@@ -25,4 +28,8 @@ class history extends Model
     // public function obat(){
     //     return $this->belongsTo('App\Models\obat', 'obat_id');
     // }
+
+    public function getCreatedAtAttribute(){
+        return Carbon::parse($this->attributes['created_at'])->translatedFormat('l, j F Y H:i');
+    }
 }
